@@ -1,0 +1,23 @@
+sookheemoon@Sookheeui-MacBookAir codecamp-backend % docker exec -it 8ce7b9f69abc /bin/bash
+root@8ce7b9f69abc:/data# redis-cli
+127.0.0.1:6379> keys *
+(empty array)
+127.0.0.1:6379> set qqq apple
+OK
+127.0.0.1:6379> get qqq
+"apple"
+127.0.0.1:6379> ttl qqq
+(integer) -1
+127.0.0.1:6379> expire qqq 20
+(integer) 1
+127.0.0.1:6379> ttl qqq
+(integer) 18
+127.0.0.1:6379> ttl qqq
+(integer) 15
+127.0.0.1:6379> ttl qqq
+(integer) 4
+127.0.0.1:6379> ttl qqq
+(integer) -2
+127.0.0.1:6379> keys *
+(empty array)
+127.0.0.1:6379> 

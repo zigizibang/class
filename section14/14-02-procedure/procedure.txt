@@ -1,0 +1,20 @@
+# 데이터베이스 목록
+show databases;
+# 프로젝트 선택
+use myproject;
+
+# 프로젝트 생성( 세미콜론 위치 주의 )
+create procedure mydummydata()
+begin
+	declare i int default 1;
+	while i <= 5 do
+		insert into board(writer, title, contents) values('철수',rand(),'반갑습니다');
+		set i = i + 1;
+	end while;
+end;
+
+# 프로시저 목록
+show procedure status;
+
+#프로시저 실행
+call mydummydata();

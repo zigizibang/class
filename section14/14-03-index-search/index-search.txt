@@ -1,0 +1,41 @@
+# 데이터 전체 갯수 확인
+SELECT count(*) from board;
+
+# 쿼리 검색 속도 비교
+SELECT *
+FROM board
+where title = '0.217006713354035';
+
+SELECT *
+FROM board
+where number = 4;
+
+# 옵티마이저 실행계획 확인
+explain
+SELECT *
+FROM board
+where title = '0.217006713354035';
+
+explain
+SELECT *
+FROM board
+where number = 4;
+
+# 인덱스 확인
+show index from board;
+
+# 인덱스 생성
+create index idx_title on board(title);
+
+
+# 옵티마이저로 실행계획 다시 확인
+explain
+SELECT *
+FROM board
+where title = '0.217006713354035';
+
+# 인덱싱된 컬럼으로 재쿼리 후, 성능 비교
+SELECT *
+FROM board
+where title = '0.217006713354035';
+
